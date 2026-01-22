@@ -15,7 +15,7 @@ public class SignUpThree extends JFrame implements ActionListener {
     String formno;
 
     public SignUpThree(String formno) {
-
+        this.formno=formno;
         title= new JLabel("Page 3: Account Details");
         title.setFont(new Font("Raelway", Font.BOLD, 20));
         title.setBounds(300, 30, 250, 30);
@@ -129,13 +129,13 @@ public class SignUpThree extends JFrame implements ActionListener {
         eStatement.setForeground(Color.black);
         add(eStatement);
 
-//        servicess= new ButtonGroup();
-//        servicess.add(atmcard);
-//        servicess.add(internetBanking);
-//        servicess.add(mobBAnking);
-//        servicess.add(email_sms);
-//        servicess.add(checkbook);
-//        servicess.add(eStatement);
+        servicess= new ButtonGroup();
+        servicess.add(atmcard);
+        servicess.add(internetBanking);
+        servicess.add(mobBAnking);
+        servicess.add(email_sms);
+        servicess.add(checkbook);
+        servicess.add(eStatement);
 
 
         declaration = new JRadioButton("I hearby declare that the above entered details are correct to the best of my knowledge");
@@ -218,7 +218,7 @@ public class SignUpThree extends JFrame implements ActionListener {
                     String query1="insert into signupthree values('"+formno+"','"+accounttype+"','"+cardnumber+"','"+pin+"','"+facility+"')";
                     conn.s.executeUpdate(query1);
 
-                    String query2= "insert into login values ('"+cardnumber+"', '"+pin+"')";
+                    String query2= "insert into login values ('"+formno+"','"+cardnumber+"', '"+pin+"')";
                     conn.s.executeUpdate(query2);
 
                     JOptionPane.showMessageDialog(null, "Card number is: "+cardnumber+ "\n Pin: "+pin);
@@ -232,7 +232,7 @@ public class SignUpThree extends JFrame implements ActionListener {
             }
 
         } else if (ae.getSource()==cancel) {
-
+            setVisible(false);
         }
 
     }
