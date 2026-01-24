@@ -2,6 +2,7 @@ package bank.management.system;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.ResultSet;
 
 public class Login extends JFrame implements ActionListener {
     JButton login, sign_up, clear;
@@ -81,6 +82,22 @@ public class Login extends JFrame implements ActionListener {
             pinTextPin.setText("");
             cardTExtField.setText("");
         } else if (ae.getSource()==login) {
+            Conn conn= new Conn();
+            String cardnumber= cardTExtField.getText();
+            String pin= pinTextPin.getText();
+            String query= "select * from login where Card_No= '"+cardnumber+"' and Pin= '"+pin+"'";
+            try {
+                ResultSet rs= conn.s.executeQuery(query);
+                if (rs.next()){
+                    setVisible(false);
+                    new Transactions(pin).setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please enter the correct card number and pin");
+                }
+            } catch (Exception e){
+                System.out.println(e);
+            }
+
 
         }
         else{
