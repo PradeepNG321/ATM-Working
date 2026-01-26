@@ -39,7 +39,7 @@ public class Transactions extends JFrame implements ActionListener {
             withdraw.addActionListener(this);
             image.add(withdraw);
 
-            fastcash = new JButton("Deposit");
+            fastcash = new JButton("Fast Cash");
             fastcash.setBounds(170, 450,150, 30);
             fastcash.addActionListener(this);
             image.add(fastcash);
@@ -92,6 +92,9 @@ public class Transactions extends JFrame implements ActionListener {
         } else if (e.getSource() == withdraw) {
             setVisible(false);
             new Withdrawl(piin).setVisible(true);
+        } else if (e.getSource()==fastcash) {
+            setVisible(false);
+            new FastCash(piin).setVisible(true);
         }
 
     }
