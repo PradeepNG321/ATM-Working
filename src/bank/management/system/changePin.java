@@ -7,7 +7,7 @@ import java.sql.Struct;
 
 public class changePin extends JFrame implements ActionListener {
 
-    JTextField pinArea,rpinArea;
+    JPasswordField pinArea,rpinArea;
     JButton change,back;
     String piin;
     changePin(String pinchange){
@@ -34,7 +34,7 @@ public class changePin extends JFrame implements ActionListener {
         pintext.setBounds(165,320,120,18);
         image.add(pintext);
 
-        pinArea= new JTextField();
+        pinArea= new JPasswordField();
         pinArea.setFont(new Font("System", Font.BOLD,14));
         pinArea.setBounds(370,320,100,20);
         pinArea.setBackground(Color.WHITE);
@@ -46,7 +46,7 @@ public class changePin extends JFrame implements ActionListener {
         rEpintext.setBounds(165,360,200,18);
         image.add(rEpintext);
 
-        rpinArea = new JTextField();
+        rpinArea = new JPasswordField();
         rpinArea.setFont(new Font("System", Font.BOLD,14));
         rpinArea.setBounds(370,360,100,20);
         rpinArea.setBackground(Color.WHITE);
