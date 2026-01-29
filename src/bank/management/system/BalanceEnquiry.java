@@ -39,7 +39,7 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
                     balance-= Integer.parseInt(rs.getString("amount"));
                 }
             }} catch (Exception e){
-            System.out.println(e);
+               System.out.println(e);
         }
 
         text= new JLabel("Your Current Balance is:   "+balance);
