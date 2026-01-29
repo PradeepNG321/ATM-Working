@@ -8,11 +8,14 @@ import java.sql.ResultSet;
 
 public class BalanceEnquiry extends JFrame implements ActionListener {
 
+
     JButton back;
     JLabel text;
     String pin;
 
     public BalanceEnquiry(String piin) {
+
+        setLayout(null);
 
         ImageIcon i1= new ImageIcon(ClassLoader.getSystemResource("icons/atm.jpg"));
         Image i2= i1.getImage().getScaledInstance(900,900, Image.SCALE_DEFAULT);
