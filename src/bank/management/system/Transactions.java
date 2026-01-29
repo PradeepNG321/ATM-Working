@@ -100,6 +100,10 @@ public class Transactions extends JFrame implements ActionListener {
             setVisible(false);
             new changePin(piin).setVisible(true);
         }
+        else if (e.getSource()==blnceenquiry){
+            setVisible(false);
+            new BalanceEnquiry(piin).setVisible(true);
+        }
 
     }
 }
