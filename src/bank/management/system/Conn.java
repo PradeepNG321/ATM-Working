@@ -13,7 +13,7 @@ public class Conn {
         try {
 // Class.forName(com.mysql.cj.jdbc.Driver);  //this is register the driver ----- also, when the zar file added in the library, no need to explicitly register the driver
             c= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/bankmanagementsystem","root","Clnja2626789@");  // creating the connection
+                    "jdbc:mysql://localhost:3306/bankmanagementsystem","root","yourDB_Password");  // creating the connection
             s=c.createStatement();  // create the statement
         }
         catch (Exception e){
