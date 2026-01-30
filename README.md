@@ -27,46 +27,7 @@ A simple Java ATM Management System that uses MySQL to store user accounts, tran
 
 ## Database setup
 
-1. Create a database for the application:
-
-```sql
-CREATE DATABASE atm_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-
-2. Example schema (adjust types and constraints to match your implementation):
-
-```sql
--- Users table
-CREATE TABLE users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(100) NOT NULL UNIQUE,
-  password_hash VARCHAR(255) NOT NULL,
-  full_name VARCHAR(200),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Accounts table
-CREATE TABLE accounts (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT NOT NULL,
-  account_number VARCHAR(50) NOT NULL UNIQUE,
-  balance DECIMAL(15,2) NOT NULL DEFAULT 0.00,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-);
-
--- Transactions table
-CREATE TABLE transactions (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  account_id INT NOT NULL,
-  type ENUM('DEPOSIT','WITHDRAWAL','TRANSFER') NOT NULL,
-  amount DECIMAL(15,2) NOT NULL,
-  related_account_id INT NULL, -- used for transfers
-  description VARCHAR(500),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE
-);
-```
+i added the code in the database file. inside it, there is a sql file. copy the code and run in the and relational db like MySQL Workbench.
 
 3. (Optional) Add sample data to test:
 
